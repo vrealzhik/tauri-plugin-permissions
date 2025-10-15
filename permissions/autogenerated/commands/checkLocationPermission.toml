@@ -1,0 +1,13 @@
+# Automatically generated - DO NOT EDIT!
+
+"$schema" = "../../schemas/schema.json"
+
+[[permission]]
+identifier = "allow-checkLocationPermission"
+description = "Enables the checkLocationPermission command without any pre-configured scope."
+commands.allow = ["checkLocationPermission"]
+
+[[permission]]
+identifier = "deny-checkLocationPermission"
+description = "Denies the checkLocationPermission command without any pre-configured scope."
+commands.deny = ["checkLocationPermission"]

@@ -1,0 +1,13 @@
+# Automatically generated - DO NOT EDIT!
+
+"$schema" = "../../schemas/schema.json"
+
+[[permission]]
+identifier = "allow-requestBluetoothScanPermission"
+description = "Enables the requestBluetoothScanPermission command without any pre-configured scope."
+commands.allow = ["requestBluetoothScanPermission"]
+
+[[permission]]
+identifier = "deny-requestBluetoothScanPermission"
+description = "Denies the requestBluetoothScanPermission command without any pre-configured scope."
+commands.deny = ["requestBluetoothScanPermission"]
