@@ -15,7 +15,7 @@ pub struct PermissionResponse {
 #[derive(Debug, Clone, Default, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct PermissionResult {
-  pub status: Option<bool>
+  pub granted: Option<bool>
 }
 
     // @Command

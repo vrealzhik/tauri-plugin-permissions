@@ -74,7 +74,7 @@ class PermissionsPlugin(private val activity: Activity) : Plugin(activity) {
             }
 
             REQUEST_CODE_BLUETOOTH -> {
-                val granted = grantResults.getOrNull(0) == PackageManager.PERMISSION_GRANTED
+                val granted = grantResults.all {it == PackageManager.PERMISSION_GRANTED}
                 bluetoothInvoke?.resolve(JSObject().apply {put("granted", granted)})
                 bluetoothInvoke = null
             }
@@ -86,6 +86,4 @@ class PermissionsPlugin(private val activity: Activity) : Plugin(activity) {
             }
         }
     }
-
-
 }

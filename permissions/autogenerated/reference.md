@@ -16,31 +16,6 @@ Default permissions for the plugin
 <th>Description</th>
 </tr>
 
-<tr>
-<td>
-
-`permissions:allow-get-all-permissions`
-
-</td>
-<td>
-
-Enables the get_all_permissions command without any pre-configured scope.
-
-</td>
-</tr>
-
-<tr>
-<td>
-
-`permissions:deny-get-all-permissions`
-
-</td>
-<td>
-
-Denies the get_all_permissions command without any pre-configured scope.
-
-</td>
-</tr>
 
 <tr>
 <td>

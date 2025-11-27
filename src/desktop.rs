@@ -16,17 +16,17 @@ pub struct Permissions<R: Runtime>(AppHandle<R>);
 impl<R: Runtime> Permissions<R> {
     pub fn get_bluetooth_permission(&self) -> crate::Result<PermissionResult> {
         Ok(PermissionResult {
-            status: Some(bool::default()),
+            granted: Some(bool::default()),
         })
     }
     pub fn get_location_permission(&self) -> crate::Result<PermissionResult> {
         Ok(PermissionResult {
-            status: Some(bool::default()),
+            granted: Some(bool::default()),
         })
     }
     pub fn get_notification_permission(&self) -> crate::Result<PermissionResult> {
         Ok(PermissionResult {
-            status: Some(bool::default()),
+            granted: Some(bool::default()),
         })
     }
     // pub fn get_all_permissions(&self) -> crate::Result<PermissionResult> {
