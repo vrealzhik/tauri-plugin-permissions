@@ -18,6 +18,84 @@ Default permissions for the plugin
 <tr>
 <td>
 
+`permissions:allow-get-bluetooth-permission`
+
+</td>
+<td>
+
+Enables the get_bluetooth_permission command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`permissions:deny-get-bluetooth-permission`
+
+</td>
+<td>
+
+Denies the get_bluetooth_permission command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`permissions:allow-get-location-permission`
+
+</td>
+<td>
+
+Enables the get_location_permission command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`permissions:deny-get-location-permission`
+
+</td>
+<td>
+
+Denies the get_location_permission command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`permissions:allow-get-notification-permission`
+
+</td>
+<td>
+
+Enables the get_notification_permission command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`permissions:deny-get-notification-permission`
+
+</td>
+<td>
+
+Denies the get_notification_permission command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
 `permissions:allow-ping`
 
 </td>
