@@ -54,11 +54,4 @@ impl<R: Runtime> Permissions<R> {
             .run_mobile_plugin("requestNotificationPermission", payload)
             .map_err(Into::into)
     }
-
-    // pub fn ping(&self, payload: PingRequest) -> crate::Result<PingResponse> {
-    //   self
-    //     .0
-    //     .run_mobile_plugin("ping", payload)
-    //     .map_err(Into::into)
-    // }
 }
