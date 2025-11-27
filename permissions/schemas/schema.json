@@ -295,6 +295,18 @@
       "type": "string",
       "oneOf": [
         {
+          "description": "Enables the get_all_permissions command without any pre-configured scope.",
+          "type": "string",
+          "const": "allow-get-all-permissions",
+          "markdownDescription": "Enables the get_all_permissions command without any pre-configured scope."
+        },
+        {
+          "description": "Denies the get_all_permissions command without any pre-configured scope.",
+          "type": "string",
+          "const": "deny-get-all-permissions",
+          "markdownDescription": "Denies the get_all_permissions command without any pre-configured scope."
+        },
+        {
           "description": "Enables the get_bluetooth_permission command without any pre-configured scope.",
           "type": "string",
           "const": "allow-get-bluetooth-permission",

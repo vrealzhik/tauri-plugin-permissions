@@ -2,6 +2,7 @@ const COMMANDS: &[&str] = &[
     "get_notification_permission",
     "get_bluetooth_permission",
     "get_location_permission",
+    "get_all_permissions"
 ];
 
 fn main() {
