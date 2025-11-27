@@ -45,9 +45,9 @@ impl<R: Runtime> Permissions<R> {
             .run_mobile_plugin("requestNotificationPermission", ())
             .map_err(Into::into)
     }
-    // pub fn get_all_permissions(&self) -> crate::Result<PermissionResult> {
-    //     self.0
-    //         .run_mobile_plugin("requestAllPermissions", ())
-    //         .map_err(Into::into)
-    // }
+    pub fn get_all_permissions(&self) -> crate::Result<PermissionResult> {
+        self.0
+            .run_mobile_plugin("requestAllPermissions", ())
+            .map_err(Into::into)
+    }
 }

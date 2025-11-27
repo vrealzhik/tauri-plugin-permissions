@@ -29,9 +29,9 @@ impl<R: Runtime> Permissions<R> {
             granted: Some(bool::default()),
         })
     }
-    // pub fn get_all_permissions(&self) -> crate::Result<PermissionResult> {
-    //     Ok(PermissionResult {
-    //         status: Some(String::default()),
-    //     })
-    // }
+    pub fn get_all_permissions(&self) -> crate::Result<PermissionResult> {
+        Ok(PermissionResult {
+            granted: Some(bool::default()),
+        })
+    }
 }
