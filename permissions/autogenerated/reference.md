@@ -7,7 +7,6 @@ Default permissions for the plugin
 - `allow-get-bluetooth-permission`
 - `allow-get-location-permission`
 - `allow-get-notification-permission`
-- `allow-get-all-permissions`
 
 ## Permission Table
 
@@ -16,7 +15,6 @@ Default permissions for the plugin
 <th>Identifier</th>
 <th>Description</th>
 </tr>
-
 
 <tr>
 <td>
