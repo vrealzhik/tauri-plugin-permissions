@@ -65,33 +65,5 @@ class PermissionsPlugin(private val activity: Activity) : Plugin(activity) {
         )
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        when (requestCode) {
-            REQUEST_CODE_LOCATION -> {
-                val granted = grantResults.getOrNull(0) == PackageManager.PERMISSION_GRANTED
-                locationInvoke?.resolve(JSObject().apply { put("granted", granted) })
-                locationInvoke = null
-            }
-
-            REQUEST_CODE_BLUETOOTH -> {
-                val allGranted = grantResults.all { it == PackageManager.PERMISSION_GRANTED }
-                bluetoothInvoke?.resolve(JSObject().apply { put("granted", allGranted) })
-                bluetoothInvoke = null
-            }
-
-            REQUEST_CODE_NOTIFICATIONS -> {
-                val granted = grantResults.getOrNull(0) == PackageManager.PERMISSION_GRANTED
-                notificationInvoke?.resolve(JSObject().apply { put("granted", granted) })
-                notificationInvoke = null
-            }
-
-            else -> {
-                super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-            }
-        }
-    }
+ 
 }
