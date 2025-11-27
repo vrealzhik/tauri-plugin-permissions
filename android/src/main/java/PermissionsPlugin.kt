@@ -11,7 +11,7 @@ import app.tauri.annotation.TauriPlugin
 import app.tauri.annotation.Command
 
 @TauriPlugin
-class PermissionPlugin(private val activity: Activity) : Plugin(activity) {
+class PermissionsPlugin(private val activity: Activity) : Plugin(activity) {
 
     @Command
     fun requestLocationPermission(invoke: Invoke) {
