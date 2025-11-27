@@ -14,19 +14,8 @@ import app.tauri.plugin.Invoke
 @TauriPlugin
 class PermissionsPlugin(private val activity: Activity) : Plugin(activity) {
 
-    companion object {
-        private const val REQUEST_CODE_LOCATION = 101
-        private const val REQUEST_CODE_BLUETOOTH = 102
-        private const val REQUEST_CODE_NOTIFICATIONS = 103
-    }
-
-    private var locationInvoke: Invoke? = null
-    private var bluetoothInvoke: Invoke? = null
-    private var notificationInvoke: Invoke? = null
-
     @Command
     fun requestLocationPermission(invoke: Invoke) {
-        locationInvoke = invoke
         ActivityCompat.requestPermissions(
             activity,
             arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
@@ -40,7 +29,6 @@ class PermissionsPlugin(private val activity: Activity) : Plugin(activity) {
             invoke.resolve(JSObject().apply { put("granted", true) })
             return
         }
-        bluetoothInvoke = invoke
         ActivityCompat.requestPermissions(
             activity,
             arrayOf(
@@ -57,7 +45,6 @@ class PermissionsPlugin(private val activity: Activity) : Plugin(activity) {
             invoke.resolve(JSObject().apply { put("granted", true) })
             return
         }
-        notificationInvoke = invoke
         ActivityCompat.requestPermissions(
             activity,
             arrayOf(Manifest.permission.POST_NOTIFICATIONS),
