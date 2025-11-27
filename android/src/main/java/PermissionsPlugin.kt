@@ -1,4 +1,4 @@
-package com.plugin.permissions
+package com.tauri.permissions
 
 import android.Manifest
 import android.app.Activity
