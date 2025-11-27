@@ -30,7 +30,6 @@ pub struct Permissions<R: Runtime>(PluginHandle<R>);
 impl<R: Runtime> Permissions<R> {
     pub fn get_bluetooth_permission(
         &self,
-        payload: PermissionRequest,
     ) -> crate::Result<PermissionResult> {
         self.0
             .run_mobile_plugin("requestBluetoothPermissions", payload)
@@ -39,7 +38,6 @@ impl<R: Runtime> Permissions<R> {
 
     pub fn get_location_permission(
         &self,
-        payload: PermissionRequest,
     ) -> crate::Result<PermissionResult> {
         self.0
             .run_mobile_plugin("requestLocationPermission", payload)
@@ -48,7 +46,6 @@ impl<R: Runtime> Permissions<R> {
 
     pub fn get_notification_permission(
         &self,
-        payload: PermissionRequest,
     ) -> crate::Result<PermissionResult> {
         self.0
             .run_mobile_plugin("requestNotificationPermission", payload)

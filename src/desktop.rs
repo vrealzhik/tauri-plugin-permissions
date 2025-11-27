@@ -16,26 +16,23 @@ pub struct Permissions<R: Runtime>(AppHandle<R>);
 impl<R: Runtime> Permissions<R> {
     pub fn get_bluetooth_permission(
         &self,
-        payload: PermissionRequest,
     ) -> crate::Result<PermissionResult> {
         Ok(PermissionResult {
-            granted: payload.value.is_some(),
+            status: Some(String::default()),
         })
     }
     pub fn get_location_permission(
         &self,
-        payload: PermissionRequest,
     ) -> crate::Result<PermissionResult> {
         Ok(PermissionResult {
-            granted: payload.value.is_some(),
+            status: Some(String::default()),
         })
     }
     pub fn get_notification_permission(
         &self,
-        payload: PermissionRequest,
     ) -> crate::Result<PermissionResult> {
         Ok(PermissionResult {
-            granted: payload.value.is_some(),
+            status: Some(String::default()),
         })
     }
 }

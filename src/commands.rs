@@ -15,23 +15,20 @@ use crate::Result;
 #[command]
 pub(crate) async fn get_bluetooth_permission<R: Runtime>(
     app: AppHandle<R>,
-    payload: PermissionRequest,
 ) -> Result<PermissionResult> {
-    app.permissions().get_bluetooth_permission(payload)
+    app.permissions().get_bluetooth_permission()
 }
 
 #[command]
 pub(crate) async fn get_location_permission<R: Runtime>(
     app: AppHandle<R>,
-    payload: PermissionRequest,
 ) -> Result<PermissionResult> {
-    app.permissions().get_location_permission(payload)
+    app.permissions().get_location_permission()
 }
 
 #[command]
 pub(crate) async fn get_notification_permission<R: Runtime>(
     app: AppHandle<R>,
-    payload: PermissionRequest,
 ) -> Result<PermissionResult> {
-    app.permissions().get_notification_permission(payload)
+    app.permissions().get_notification_permission()
 }
