@@ -32,7 +32,7 @@ impl<R: Runtime> Permissions<R> {
         &self,
     ) -> crate::Result<PermissionResult> {
         self.0
-            .run_mobile_plugin("requestBluetoothPermissions", payload)
+            .run_mobile_plugin("requestBluetoothPermissions", ())
             .map_err(Into::into)
     }
 
@@ -40,7 +40,7 @@ impl<R: Runtime> Permissions<R> {
         &self,
     ) -> crate::Result<PermissionResult> {
         self.0
-            .run_mobile_plugin("requestLocationPermission", payload)
+            .run_mobile_plugin("requestLocationPermission", ())
             .map_err(Into::into)
     }
 
@@ -48,7 +48,7 @@ impl<R: Runtime> Permissions<R> {
         &self,
     ) -> crate::Result<PermissionResult> {
         self.0
-            .run_mobile_plugin("requestNotificationPermission", payload)
+            .run_mobile_plugin("requestNotificationPermission", ())
             .map_err(Into::into)
     }
 }
