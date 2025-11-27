@@ -41,7 +41,7 @@ pub fn init<R: Runtime>() -> TauriPlugin<R> {
             get_bluetooth_permission,
             get_location_permission,
             get_notification_permission,
-            get_all_permissions
+            // get_all_permissions
         ])
         .setup(|app, api| {
             #[cfg(mobile)]
