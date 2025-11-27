@@ -4,7 +4,9 @@ Default permissions for the plugin
 
 #### This default permission set includes the following:
 
-- `allow-ping`
+- `allow-get-bluetooth-permission`
+- `allow-get-location-permission`
+- `allow-get-notification-permission`
 
 ## Permission Table
 
@@ -89,32 +91,6 @@ Enables the get_notification_permission command without any pre-configured scope
 <td>
 
 Denies the get_notification_permission command without any pre-configured scope.
-
-</td>
-</tr>
-
-<tr>
-<td>
-
-`permissions:allow-ping`
-
-</td>
-<td>
-
-Enables the ping command without any pre-configured scope.
-
-</td>
-</tr>
-
-<tr>
-<td>
-
-`permissions:deny-ping`
-
-</td>
-<td>
-
-Denies the ping command without any pre-configured scope.
 
 </td>
 </tr>

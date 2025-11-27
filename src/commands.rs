@@ -32,3 +32,8 @@ pub(crate) async fn get_notification_permission<R: Runtime>(
 ) -> Result<PermissionResult> {
     app.permissions().get_notification_permission()
 }
+
+#[command]
+pub(crate) async fn get_all_permissions<R: Runtime>(app: AppHandle<R>) -> Result<PermissionResult> {
+    app.permissions().get_all_permissions()
+}

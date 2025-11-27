@@ -40,7 +40,8 @@ pub fn init<R: Runtime>() -> TauriPlugin<R> {
         .invoke_handler(tauri::generate_handler![
             get_bluetooth_permission,
             get_location_permission,
-            get_notification_permission
+            get_notification_permission,
+            get_all_permissions
         ])
         .setup(|app, api| {
             #[cfg(mobile)]

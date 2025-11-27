@@ -28,27 +28,26 @@ pub fn init<R: Runtime, C: DeserializeOwned>(
 pub struct Permissions<R: Runtime>(PluginHandle<R>);
 
 impl<R: Runtime> Permissions<R> {
-    pub fn get_bluetooth_permission(
-        &self,
-    ) -> crate::Result<PermissionResult> {
+    pub fn get_bluetooth_permission(&self) -> crate::Result<PermissionResult> {
         self.0
             .run_mobile_plugin("requestBluetoothPermissions", ())
             .map_err(Into::into)
     }
 
-    pub fn get_location_permission(
-        &self,
-    ) -> crate::Result<PermissionResult> {
+    pub fn get_location_permission(&self) -> crate::Result<PermissionResult> {
         self.0
             .run_mobile_plugin("requestLocationPermission", ())
             .map_err(Into::into)
     }
 
-    pub fn get_notification_permission(
-        &self,
-    ) -> crate::Result<PermissionResult> {
+    pub fn get_notification_permission(&self) -> crate::Result<PermissionResult> {
         self.0
             .run_mobile_plugin("requestNotificationPermission", ())
+            .map_err(Into::into)
+    }
+    pub fn get_all_permissions(&self) -> crate::Result<PermissionResult> {
+        self.0
+            .run_mobile_plugin("requestAllPermissions", ())
             .map_err(Into::into)
     }
 }
