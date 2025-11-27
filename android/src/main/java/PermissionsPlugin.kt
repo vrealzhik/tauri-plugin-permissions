@@ -1,15 +1,15 @@
-package com.plugin.permissions
+package com.tauri.plugin.permissions
 
 import android.Manifest
 import android.app.Activity
+import android.content.pm.PackageManager
 import android.os.Build
-import assnroid.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
+import app.tauri.annotation.TauriPlugin
+import app.tauri.annotation.Command
 import app.tauri.plugin.JSObject
 import app.tauri.plugin.Plugin
 import app.tauri.plugin.Invoke
-import app.tauri.annotation.TauriPlugin
-import app.tauri.annotation.Command
 
 @TauriPlugin
 class PermissionsPlugin(private val activity: Activity) : Plugin(activity) {
@@ -37,7 +37,7 @@ class PermissionsPlugin(private val activity: Activity) : Plugin(activity) {
     @Command
     fun requestBluetoothPermissions(invoke: Invoke) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
-            invoke.resolve(JSObject().apply {put("granted", true)})
+            invoke.resolve(JSObject().apply { put("granted", true) })
             return
         }
         bluetoothInvoke = invoke
@@ -54,7 +54,7 @@ class PermissionsPlugin(private val activity: Activity) : Plugin(activity) {
     @Command
     fun requestNotificationPermission(invoke: Invoke) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
-            invoke.resolve(JSObject().apply {put("granted", true)})
+            invoke.resolve(JSObject().apply { put("granted", true) })
             return
         }
         notificationInvoke = invoke
@@ -65,24 +65,32 @@ class PermissionsPlugin(private val activity: Activity) : Plugin(activity) {
         )
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResult: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
         when (requestCode) {
             REQUEST_CODE_LOCATION -> {
                 val granted = grantResults.getOrNull(0) == PackageManager.PERMISSION_GRANTED
-                locationInvoke?.resolve(JSObject().apply {put("granted", granted)})
+                locationInvoke?.resolve(JSObject().apply { put("granted", granted) })
                 locationInvoke = null
             }
 
             REQUEST_CODE_BLUETOOTH -> {
-                val granted = grantResults.all {it == PackageManager.PERMISSION_GRANTED}
-                bluetoothInvoke?.resolve(JSObject().apply {put("granted", granted)})
+                val allGranted = grantResults.all { it == PackageManager.PERMISSION_GRANTED }
+                bluetoothInvoke?.resolve(JSObject().apply { put("granted", allGranted) })
                 bluetoothInvoke = null
             }
 
             REQUEST_CODE_NOTIFICATIONS -> {
                 val granted = grantResults.getOrNull(0) == PackageManager.PERMISSION_GRANTED
-                notificationInvoke?.resolve(JSObject().apply {put("granted", granted)})
+                notificationInvoke?.resolve(JSObject().apply { put("granted", granted) })
                 notificationInvoke = null
+            }
+
+            else -> {
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults)
             }
         }
     }
