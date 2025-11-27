@@ -14,6 +14,12 @@ import app.tauri.plugin.Invoke
 @TauriPlugin
 class PermissionsPlugin(private val activity: Activity) : Plugin(activity) {
 
+    companion object {
+        private const val REQUEST_CODE_LOCATION = 101
+        private const val REQUEST_CODE_BLUETOOTH = 102
+        private const val REQUEST_CODE_NOTIFICATIONS = 103
+    }
+
     @Command
     fun requestLocationPermission(invoke: Invoke) {
         ActivityCompat.requestPermissions(
