@@ -6,6 +6,7 @@ import app.tauri.annotation.TauriPlugin
 import app.tauri.plugin.JSObject
 import app.tauri.plugin.Plugin
 import app.tauri.plugin.Invoke
+import android.content.pm.PackageManager
 
 @TauriPlugin
 class PermissionPlugin(private val activity: Activity) : Plugin(activity) {
@@ -46,34 +47,6 @@ class PermissionPlugin(private val activity: Activity) : Plugin(activity) {
         } else {
             notificationInvoke = invoke
             handler.requestNotificationPermission()
-        }
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        when (requestCode) {
-            PermissionHandler.REQUEST_CODE_LOCATION -> {
-                val granted = grantResults.getOrNull(0) == PackageManager.PERMISSION_GRANTED
-                locationInvoke?.resolve(JSObject().apply { put("granted", granted) })
-                locationInvoke = null
-            }
-
-            PermissionHandler.REQUEST_CODE_BLUETOOTH -> {
-                val allGranted = grantResults.all { it == PackageManager.PERMISSION_GRANTED }
-                bluetoothInvoke?.resolve(JSObject().apply { put("granted", allGranted) })
-                bluetoothInvoke = null
-            }
-
-            PermissionHandler.REQUEST_CODE_NOTIFICATIONS -> {
-                val granted = grantResults.getOrNull(0) == PackageManager.PERMISSION_GRANTED
-                notificationInvoke?.resolve(JSObject().apply { put("granted", granted) })
-                notificationInvoke = null
-            }
-
-            else -> super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         }
     }
 }
