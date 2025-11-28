@@ -16,6 +16,7 @@ class PermissionsPlugin: Plugin {
         _ = try invoke.parseArgs(RequestLocationArgs.self)
         let locationManager = CLLocationManager()
         locationManager.requestWhenInUseAuthorization()
+        invoke.resolve(["granted": true])
     }
     
     @objc public func requestBluetoothPermissions(_ invoke: Invoke) throws {
@@ -27,6 +28,7 @@ class PermissionsPlugin: Plugin {
         _ = try invoke.parseArgs(RequestNotificationArgs.self)
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound, .badge]) { _, _ in }
+        invoke.resolve(["granted": true])      
     }
     
     @objc public func requestAllPermissions(_ invoke: Invoke) throws {
@@ -37,6 +39,8 @@ class PermissionsPlugin: Plugin {
         
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound, .badge]) { _, _ in }
+        
+        invoke.resolve(["granted": true])
     }
 }
 
